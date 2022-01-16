@@ -196,6 +196,26 @@ const messages = {
           cancel: "Cancel",
         },
       },
+      campaignModal: {
+        title: {
+          add: "Add campaign",
+          edit: "Edit campaign",
+        },
+        form: {
+          name: "Name",
+          conextion: "Select a connection*",
+          attachment: "ADD ATTACHMENT",
+          message: "default message",
+          variables: "Available variables",
+          csvfile: "IMPORT CSV FILE",
+          sample: "download the sample file",
+        },
+        buttons: {
+          okAdd: "Add",
+          okEdit: "Save",
+          cancel: "Cancel",
+        },
+      },
       userModal: {
         title: {
           add: "Add user",
@@ -277,10 +297,12 @@ const messages = {
         listItems: {
           dashboard: "Dashboard",
           connections: "Connections",
-          tickets: "Tickets",
+          tickets: "Conversations",
           contacts: "Contacts",
           quickAnswers: "Quick Answers",
-          queues: "Queues",
+          queues: "Queues & Chatbots",
+          campaings: "Campaigns",
+          reports: "Reports",
           administration: "Administration",
           users: "Users",
           settings: "Settings",
@@ -314,6 +336,24 @@ const messages = {
       },
       queueSelect: {
         inputLabel: "Queues",
+      },
+      campaigns: {
+        title: "Campaigns",
+        table: {
+          name: "Campaign Name",
+          status: "Status",
+          createdAt: "Created at",
+          progress: "Progress",
+          actions: "Actions",
+        },
+        buttons: {
+          add: "New Campaign",
+        },
+        confirmationModal: {
+          deleteTitle: "Delete",
+          deleteMessage:
+            "Are you sure? It cannot be reverted!",
+        },
       },
       quickAnswers: {
         title: "Quick Answers",

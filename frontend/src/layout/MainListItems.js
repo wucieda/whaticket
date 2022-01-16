@@ -9,12 +9,14 @@ import Divider from "@material-ui/core/Divider";
 import { Badge } from "@material-ui/core";
 import DashboardOutlinedIcon from "@material-ui/icons/DashboardOutlined";
 import WhatsAppIcon from "@material-ui/icons/WhatsApp";
-import SyncAltIcon from "@material-ui/icons/SyncAlt";
+import SyncAltIcon from "@material-ui/icons/ImportantDevices";
 import SettingsOutlinedIcon from "@material-ui/icons/SettingsOutlined";
-import PeopleAltOutlinedIcon from "@material-ui/icons/PeopleAltOutlined";
+import PeopleAltOutlinedIcon from "@material-ui/icons/Group";
 import ContactPhoneOutlinedIcon from "@material-ui/icons/ContactPhoneOutlined";
-import AccountTreeOutlinedIcon from "@material-ui/icons/AccountTreeOutlined";
+import AccountTreeOutlinedIcon from "@material-ui/icons/Queue";
 import QuestionAnswerOutlinedIcon from "@material-ui/icons/QuestionAnswerOutlined";
+import AssignmentIcon from "@material-ui/icons/Assignment";
+import EventNoteIcon from "@material-ui/icons/EventRounded";
 
 import { i18n } from "../translate/i18n";
 import { WhatsAppsContext } from "../context/WhatsApp/WhatsAppsContext";
@@ -120,6 +122,16 @@ const MainListItems = (props) => {
               to="/queues"
               primary={i18n.t("mainDrawer.listItems.queues")}
               icon={<AccountTreeOutlinedIcon />}
+            />
+             <ListItemLink
+              to="/campaigns"
+              primary={i18n.t("mainDrawer.listItems.campaings")}
+              icon={<EventNoteIcon />}
+            />
+             <ListItemLink
+              to="/"
+              primary={i18n.t("mainDrawer.listItems.reports")}
+              icon={<AssignmentIcon />}
             />
             <ListItemLink
               to="/settings"

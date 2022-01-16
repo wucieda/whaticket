@@ -195,7 +195,27 @@ const messages = {
         },
         buttons: {
           okAdd: "Añadir",
-          okEdit: "Ahorrar",
+          okEdit: "Guardar",
+          cancel: "Cancelar",
+        },
+      },
+      campaignModal: {
+        title: {
+          add: "Agregar campaña",
+          edit: "Editar Agregar",
+        },
+        form: {
+          name: "Nombre",
+          conextion: "Seleccionar una conexion*",
+          attachment: "AÑADIR ADJUNTO",
+          message: "mensaje predeterminado",
+          variables: "Variables disponibles",
+          csvfile: "IMPORTAR ARCHIVO CSV",
+          sample: "descargar el archivo de muestra",
+        },
+        buttons: {
+          okAdd: "Añadir",
+          okEdit: "Guardar",
           cancel: "Cancelar",
         },
       },
@@ -281,10 +301,12 @@ const messages = {
         listItems: {
           dashboard: "Dashboard",
           connections: "Conexiones",
-          tickets: "Tickets",
+          tickets: "Conversaciones",
           contacts: "Contactos",
           quickAnswers: "Respuestas rápidas",
-          queues: "Linhas",
+          queues: "colas & Chatbots",
+          campaings: "Campañas",
+          reports: "Reportes",
           administration: "Administración",
           users: "Usuarios",
           settings: "Configuración",
@@ -300,7 +322,7 @@ const messages = {
         noTickets: "Sin notificaciones.",
       },
       queues: {
-        title: "Linhas",
+        title: "Colas",
         table: {
           name: "Nombre",
           color: "Color",
@@ -318,6 +340,24 @@ const messages = {
       },
       queueSelect: {
         inputLabel: "Linhas",
+      },
+      campaigns: {
+        title: "Campañas",
+        table: {
+          name: "Nombre de Campaña",
+          status: "estado",
+          createdAt: "Creado en",
+          progress: "Progreso",
+          actions: "Acciones",
+        },
+        buttons: {
+          add: "New Campaign",
+        },
+        confirmationModal: {
+          deleteTitle: "Delete",
+          deleteMessage:
+            "Are you sure? It cannot be reverted!",
+        },
       },
       quickAnswers: {
         title: "Respuestas rápidas",
