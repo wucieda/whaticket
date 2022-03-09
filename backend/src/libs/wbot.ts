@@ -1,10 +1,11 @@
 import qrCode from "qrcode-terminal";
-import { Client } from "whatsapp-web.js";
+import { Client , LocalAuth} from "whatsapp-web.js";
 import { getIO } from "./socket";
 import Whatsapp from "../models/Whatsapp";
 import AppError from "../errors/AppError";
 import { logger } from "../utils/logger";
 import { handleMessage } from "../services/WbotServices/wbotMessageListener";
+import fs from 'fs'
 
 interface Session extends Client {
   id?: number;
@@ -37,18 +38,40 @@ export const initWbot = async (whatsapp: Whatsapp): Promise<Session> => {
     try {
       const io = getIO();
       const sessionName = whatsapp.name;
+      const SESSION_FILE_PATH = 'bd_'+whatsapp.id;
       let sessionCfg;
 
-      if (whatsapp && whatsapp.session) {
-        sessionCfg = JSON.parse(whatsapp.session);
+      //if (whatsapp && whatsapp.session) {
+      //  sessionCfg = JSON.parse(whatsapp.session);
+      //}
+
+      if (fs.existsSync(SESSION_FILE_PATH)) {
+        sessionCfg = require(SESSION_FILE_PATH);
       }
 
+      //const wbot: Session = new Client({
+        //session: sessionCfg,
+        //puppeteer: {
+        //  executablePath: process.env.CHROME_BIN || undefined
+        //}
+      //});
+
+      const args:String = process.env.CHROME_ARGS || "";
+
+      //const wbot: Session = new Client({ puppeteer: { headless: true }});
+
       const wbot: Session = new Client({
-        session: sessionCfg,
+        //Adicionei essa linha, utilizei a método LocalAuth que cria uma pasta local. Mas existem outros métodos.
+        authStrategy: new LocalAuth({clientId: `bd_${whatsapp.id}`}),
+        
+        //session: sessionCfg,
         puppeteer: {
-          executablePath: process.env.CHROME_BIN || undefined
-        }
-      });
+                executablePath: process.env.CHROME_BIN || undefined,
+                // @ts-ignore
+                browserWSEndpoint: process.env.CHROME_WS || undefined,
+                args: args.split(' ')
+          }
+        });
 
       wbot.initialize();
 
